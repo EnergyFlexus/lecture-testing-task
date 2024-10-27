@@ -1,0 +1,1 @@
+clang-tidy "-checks=*,clang-analyzer-*,-clang-analyzer-cplusplus*" -format-style=file -p build ../../src/*

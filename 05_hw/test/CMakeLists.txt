@@ -9,6 +9,10 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 add_executable(tests 
 	tests/test_stack.cpp
-	tests/test_smoke.cpp)
+	tests/test_smoke.cpp
+	../src/stack.c)
+
+target_compile_options(tests PRIVATE -coverage -fprofile-instr-generate -fcoverage-mapping)
+target_link_options(tests PRIVATE -coverage)
 
 target_link_libraries(tests PRIVATE gtest gtest_main)

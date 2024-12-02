@@ -1,12 +1,30 @@
 #include <gtest/gtest.h>
 
-TEST(TestCaseName3, TestName3)
+#include "../../src/stack.h"
+
+TEST(SmokeStack, TestInitDestroy)
 {
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	// Arrange
+	Stack stack;
+
+	// Act
+	initStack(&stack);
+	destroyStack(&stack);
+
+	// Assert
+	SUCCEED();
 }
-TEST(TestCaseName4, TestName4)
+TEST(SmokeStack, TestEmpty)
 {
-	EXPECT_EQ(2, 1);
-	EXPECT_TRUE(true);
+	// Arrange
+	Stack stack;
+	initStack(&stack);
+
+	// Act
+	bool is_empty = isEmpty(&stack);
+
+	// Assert
+	EXPECT_EQ(is_empty, true);
+
+	destroyStack(&stack);
 }

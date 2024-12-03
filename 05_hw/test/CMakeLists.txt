@@ -12,10 +12,13 @@ add_executable(tests
 	tests/test_smoke.cpp
 	../src/stack.c)
 
-target_compile_options(tests PRIVATE -coverage -fprofile-instr-generate -fcoverage-mapping)
-target_link_options(tests PRIVATE -coverage)
+# code coverage if debug
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	target_compile_options(tests PRIVATE -coverage -fprofile-instr-generate -fcoverage-mapping)
+	target_link_options(tests PRIVATE -coverage)
+	# clear gcda files
+	execute_process(COMMAND rm -f *.gcda WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/tests.dir/tests)
+endif()
+
 
 target_link_libraries(tests PRIVATE gtest gtest_main)
-
-# clear gcda files
-execute_process(COMMAND rm -f *.gcda WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/tests.dir/tests)

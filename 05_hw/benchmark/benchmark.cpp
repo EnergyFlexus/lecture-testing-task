@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	initStack(&stack);
 
 	const int data = 1;
-	const size_t limit = 1e7;
+	const size_t limit = 10000000;
 
 	std::chrono::time_point<std::chrono::steady_clock> start_time;
 	std::chrono::time_point<std::chrono::steady_clock> end_time;

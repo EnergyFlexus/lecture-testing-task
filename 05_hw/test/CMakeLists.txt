@@ -16,3 +16,6 @@ target_compile_options(tests PRIVATE -coverage -fprofile-instr-generate -fcovera
 target_link_options(tests PRIVATE -coverage)
 
 target_link_libraries(tests PRIVATE gtest gtest_main)
+
+# clear gcda files
+execute_process(COMMAND rm -f *.gcda WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/tests.dir/tests)

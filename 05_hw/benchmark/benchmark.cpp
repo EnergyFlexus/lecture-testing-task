@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	initStack(&stack);
 
 	const int data = 1;
-	const size_t steps = 7;
+	const size_t steps = 8;
 	size_t limit = 10;
 
 	for (size_t s = 0; s < steps; ++s)

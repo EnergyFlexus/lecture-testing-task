@@ -9,8 +9,7 @@ target_link_libraries(main stack)
 
 # sanitizer setup
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Release")
-	target_compile_options(stack PRIVATE -fsanitize=address)
-	target_compile_options(main PRIVATE -fsanitize=address)
+	target_compile_options(main PRIVATE -fsanitize=address -MD)
 endif()
 
 # tests setup
